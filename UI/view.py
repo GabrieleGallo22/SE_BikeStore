@@ -30,7 +30,7 @@ class View:
         self.txt_titolo = ft.Text(value="Gestione Vendita Biciclette", size=30, weight=ft.FontWeight.BOLD)
 
         # Riga 1
-        self.dd_category = ft.Dropdown(label="Categoria", width=200) # TODO: Gestire il dropdown
+        self.dd_category = ft.Dropdown(label="Categoria", width=200)
 
         self.dp1 = ft.DatePicker(
             on_change=lambda e: print(f"Giorno selezionato: {self.dp1.value}"),
@@ -40,7 +40,8 @@ class View:
         self.page.overlay.append(self.dp1)
         self.pulsante_start_date = ft.ElevatedButton("Data Inizio",
                                           icon=ft.Icons.CALENDAR_MONTH,
-                                          on_click=lambda _: self.page.open(self.dp1))
+                                          on_click=lambda _: self.page.open(self.dp1)
+                                                     )
 
         self.dp2 = ft.DatePicker(
             on_change=lambda e: print(f"Giorno selezionato: {self.dp2.value}"),
@@ -88,7 +89,7 @@ class View:
 
             self.txt_risultato
         )
-
+        self.controller.populate_dd()
         self.page.scroll = "adaptive"
         self.page.update()
 
